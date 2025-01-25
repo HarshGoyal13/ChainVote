@@ -34,7 +34,7 @@ const ContactUs = () => {
     setMessage("Wait For sending mail..")
 
     try {
-      const res = await axios.post("http://localhost:8080/voting/contactUs", data);
+      const res = await axios.post("https://chainvote.onrender.com/voting/contactUs", data);
 
       if (res.data.success) {
         setFormData({

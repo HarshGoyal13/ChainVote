@@ -48,16 +48,14 @@ const addDataInDB = async () => {
   };
 
   try {
-    const res = await axios.post("http://localhost:8080/voting/candidate/addCandidate", data);
+    const res = await axios.post("https://chainvote.onrender.com/voting/candidate/addCandidate", data);
     console.log(res);
 
     if (res.status === 201 || res.status === 200) {
-      toast.success("Data registered in DB!");
       return true; 
     }
   } catch (err) {
     console.error("Error adding data to DB:", err);
-    toast.error("Failed to add in DB. Please try again.");
     return false; 
   }
 };
@@ -162,7 +160,7 @@ const handleFileUpload = async (e) => {
               placeholder="Enter your Mail"
               className="w-full py-3 px-4 bg-gray-800 text-white rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-400 placeholder-gray-500"
               required
-              onChange={(e) => handelFormData("name", e.target.value)}
+              onChange={(e) => handelFormData("email", e.target.value)}
             />
             <span className="absolute top-1/2 right-4 transform -translate-y-1/2 text-gray-500">
               <i className="fas fa-user"></i>
